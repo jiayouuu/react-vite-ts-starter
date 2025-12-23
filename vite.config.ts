@@ -24,7 +24,6 @@ export default defineConfig(({ mode }) => {
         inject: {
           data: {
             title,
-            favicon: join(env.VITE_PUBLIC_BASE, "favicon.ico"),
           },
           tags: [
             {
