@@ -4,9 +4,10 @@ import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
 import { globalIgnores } from "eslint/config";
+import { name } from "./package.json";
 
 export default tseslint.config([
-  globalIgnores(["dist"]),
+  globalIgnores([name, "dist"]),
   {
     files: ["**/*.{ts,tsx}"],
     extends: [

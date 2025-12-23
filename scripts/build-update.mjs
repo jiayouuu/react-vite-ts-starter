@@ -13,7 +13,7 @@ const getViteOutDir = async () => {
     const config = await resolveConfig({}, "build", "prod");
     return config.build.outDir;
   } catch {
-    console.warn('Failed to read vite.config.js, using default "dist"');
+    console.warn('Failed to read vite.config.ts, using default "dist"');
     return "dist";
   }
 };
