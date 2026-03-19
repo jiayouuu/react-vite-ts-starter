@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Input, Button, message } from "antd";
 import { UserOutlined, LockOutlined, MailOutlined } from "@ant-design/icons";
+import { useSearchParams, useParams } from "react-router-dom";
 import style from "../auth.module.scss";
 import classNames from "classnames/bind";
 const cx = classNames.bind(style);
@@ -14,7 +15,10 @@ interface RegisterForm {
 
 const Register: React.FC = () => {
   const [loading, setLoading] = useState(false);
-
+  const [searchParams] = useSearchParams();
+  const params = useParams();
+  console.log("注册页路径参数:", params);
+  console.log("注册页搜索参数:", Object.fromEntries(searchParams.entries()));
   const onFinish = async (values: RegisterForm) => {
     try {
       setLoading(true);

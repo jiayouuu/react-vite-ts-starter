@@ -3,11 +3,14 @@ import { Result, Button, Typography, Space } from "antd";
 import { HomeOutlined, RollbackOutlined } from "@ant-design/icons";
 import classNames from "classnames/bind";
 import style from "./index.module.scss";
+import { useNavigate } from "react-router-dom";
+import { genSearchParams } from "@/utils/public";
 
 const cx = classNames.bind(style);
 const { Paragraph, Title } = Typography;
 
 const Funny404: FC = () => {
+  const navigate = useNavigate();
   return (
     <div className={cx("container")}>
       <Result
@@ -28,7 +31,15 @@ const Funny404: FC = () => {
               <Button
                 type="primary"
                 icon={<HomeOutlined />}
-                onClick={() => (window.location.href = "/")}
+                onClick={() =>
+                  navigate({
+                    pathname: "/auth/register/1/sdf",
+                    search: genSearchParams({
+                      ref: ["404", "notfound"],
+                      name: "sfdsfsfsdsd",
+                    }),
+                  })
+                }
               >
                 回到首页
               </Button>
